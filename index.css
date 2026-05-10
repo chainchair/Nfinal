@@ -38,3 +38,15 @@ h1, h2,h3,h4,h5,h6 {
     font-size: small;
     color: gray;
 }
+
+.grupo-campo {
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+.grupo-campo label {
+    display: block;
+    text-align: start;
+    margin-bottom: 5px;
+}

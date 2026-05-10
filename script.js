@@ -58,11 +58,25 @@ function crearFilaParcial() {
     revisarSumaTotal();
 });
 
-    div.appendChild(labelNota);
-    div.appendChild(inputNota);
-    div.appendChild(labelPorcentaje);
-    div.appendChild(inputPorcentaje);
-    div.appendChild(btnEliminar);
+    const grupoNota = document.createElement('span');
+    grupoNota.className = 'grupo-campo';
+    grupoNota.appendChild(labelNota);
+    grupoNota.appendChild(inputNota);
+
+    const grupoPorcentaje = document.createElement('span');
+    grupoPorcentaje.className = 'grupo-campo';
+    grupoPorcentaje.appendChild(labelPorcentaje);
+    grupoPorcentaje.appendChild(inputPorcentaje);
+    grupoPorcentaje.appendChild(btnEliminar);
+
+    div.appendChild(grupoNota);
+    div.appendChild(grupoPorcentaje);
+
+    const totalFilas = document.querySelectorAll('.fila-parcial').length;
+    if (totalFilas > 0) {
+        labelNota.style.display = 'none';
+        labelPorcentaje.style.display = 'none';
+    }
 
     return div;
 }
