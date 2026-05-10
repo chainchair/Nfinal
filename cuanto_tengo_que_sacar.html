@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>Nfinal</title>
+</head>
+
+<body style="background-image: url(background.png); 
+    background-repeat: no-repeat; text-align: center;">
+    <main>
+        <h1>Calculadora de nota final</h1>
+        <section class="container" style="background-color: #f9f9f9; padding-top: 1px;">
+            
+                <p style="margin:20px 5px 0px 10px; font-size: 16px">Calcula tus notas hasta el momento,obten cuanto es el minimo que debes sacar
+                     y la nota a la que debes apuntar para asegurar la materia,cambia el rango segun el pais </p>
+                
+            <section id="information" class="container" style="background-color: white; padding: 15px 30px;">    
+                    <div id="lista-parciales">
+                    <!-- Aquí se van añadiendo las filas dinámicamente -->
+                    </div>
+                <button id="btn-agregar" type="button">Añadir nota</button>
+            
+            <p id="suma-porcentajes">porcentaje acumulado: 0%</p>
+            <button id="btn-calcular" type="button">Calcular</button>
+            
+            <section id="objetivo">
+                <h2>Resumen</h2>
+                <p id="nota-minima-resultado">Nota final mínima: --</p>
+                <p id="nota-deseada-resultado">Nota recomendada: --</p>
+                <p id="promedio-acumulado">Promedio acumulado: --</p>
+                <p id="nota-minima-posible">Nota final acumulada: --</p>
+            </section>
+            </section>
+        </section>
+    </main>
+    <script src="popup.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>
