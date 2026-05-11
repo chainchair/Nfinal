@@ -16,21 +16,25 @@
                 <p style="margin:20px 5px 0px 10px; font-size: 16px">Calcula tus notas hasta el momento,obten cuanto es el minimo que debes sacar
                      y la nota a la que debes apuntar para asegurar la materia,cambia el rango segun el pais </p>
                 
-            <section id="information" class="container" style="background-color: white; padding: 15px 30px;">    
+            <section id="information" class="container" style="background-color: white; padding: 15px 30px;">  
+                <p id="suma-porcentajes" style="display: block; justify-self: end; padding: 0px; margin: 0px;">acumulado: 0%</p>  
                     <div id="lista-parciales" style="padding-bottom: 10px;">
                     <!-- Aquí se van añadiendo las filas dinámicamente -->
                     </div>
+                <div style="display:flex; justify-content:space-evenly; margin: 0px ; padding: auto;">
                 <button id="btn-agregar" type="button">Añadir nota</button>
-            
-            <p id="suma-porcentajes">porcentaje acumulado: 0%</p>
-            <button id="btn-calcular" type="button">Calcular</button>
+                <button id="btn-calcular" type="button">Calcular</button>
+                </div>
             
             <section id="objetivo">
                 <h2>Resumen</h2>
-                <p id="nota-minima-resultado">Nota final mínima: --</p>
-                <p id="nota-deseada-resultado">Nota recomendada: --</p>
-                <p id="promedio-acumulado">Promedio acumulado: --</p>
-                <p id="nota-minima-posible">Nota final acumulada: --</p>
+                <section style="display: grid;
+    grid-template-columns: 1fr 1fr;">
+                    <p id="nota-minima-resultado"><b>Nota final mínima: </b></p>
+                    <p id="promedio-acumulado"><b>Promedio acumulado: </b></p>
+                    <p id="nota-deseada-resultado"><b>Nota recomendada: </b></p>
+                    <p id="nota-minima-posible"><b>Nota final acumulada: </b></p>
+                </section>
             </section>
             </section>
         </section>
