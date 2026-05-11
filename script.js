@@ -301,7 +301,7 @@ notaMinimaResultado.addEventListener('click', function() {
 });
 
 notaDeseadaResultado.addEventListener('click', function() {
-    mostrarPopUp('Es la nota a la que deberías apuntar en lo que falta para tener un margen de seguridad. No te conformes con el mínimo.');
+    mostrarPopUp('Es la nota a la que deberías apuntar en lo que falta para tener un margen de seguridad.');
 });
 
 promedioAcumulado.addEventListener('click', function() {
