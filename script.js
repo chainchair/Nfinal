@@ -30,6 +30,11 @@ function agregarFila() {
             agregarFila();}
     });
     contenedor.appendChild(clone);  
+    const inputPorcentaje = contenedor.lastElementChild.querySelector('.input-porcentaje');
+    inputPorcentaje.addEventListener('input', function() {
+    validarPorcentaje(inputPorcentaje);
+    actualizarSumaMostrada();
+    revisarSumaTotal();});
 }
 //agrega una fila al cargar la página
 agregarFila();
