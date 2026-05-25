@@ -16,6 +16,27 @@ h1, h2,h3,h4,h5,h6 {
     justify-content: center;
     color: #333;
 }
+
+@media (max-width: 500px) {
+    h1, h2 {
+    font-size:medium;
+    }
+}
+
+p{
+    font-size: medium;
+     text-align: center;
+}
+@media (max-width: 650px) {
+    p {
+       font-size: small;
+    }
+}
+@media (max-width: 400px) {
+    p {
+       font-size: smaller;
+    }
+}
 label{
     color: gray;
 }
@@ -35,9 +56,7 @@ label{
     display:flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    justify-content: space-evenly;
-    
-    
+    justify-content: space-evenly;  
 }
 @media (max-width: 500px) {
     .fila-nota {
@@ -49,6 +68,12 @@ label{
     flex-direction: column;
     text-align: start;
 }
+@media (max-width: 500px) {
+    .input-group {
+       font-size: small;
+    }
+}
+
 .grupo-porcentaje{
     display:flex;
     flex-direction: row;
@@ -64,11 +89,41 @@ button {
     border-radius: 2px;
     padding: 9px 10px;
 }
+@media (max-width: 500px) {
+    button {
+       font-size: small;
+       padding: 8px 6px;
+    }
+}
 .botones{
     display: flex;
     flex-direction: row;
     justify-content: center;
     justify-content: space-evenly;
+    margin-top: 14px;
+}
+
+@media (max-width: 500px) {
+    .botones {
+       column-gap: 15px;
+    }
+}
+.btn-agregar{
+    padding-inline:6px
+}
+@media (max-width: 500px) {
+    .btn-agregar {
+       column-gap: 8px;
+    }
+}
+.btn-calcular{
+    padding-inline: 56px;
+}
+@media (max-width: 500px) {
+    .btn-calcular {
+       padding-inline: 43px;
+
+    }
 }
 .btn-eliminar{
     padding: 9px 4px;
@@ -97,6 +152,14 @@ input {
     max-width: 90px;
     border-radius: 4px;
     text-justify:auto;
+}
+
+@media (max-width: 500px) {
+    input {
+       font-size: small;
+       max-width: 70px;
+       max-height: 20px;
+    }
 }
 
 
