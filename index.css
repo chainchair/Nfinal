@@ -69,6 +69,7 @@ button {
     flex-direction: row;
     justify-content: center;
     justify-content: space-evenly;
+    margin-top: 14px;
 }
 .btn-eliminar{
     padding: 9px 4px;
