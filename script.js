@@ -1,7 +1,8 @@
 const btnAgregar = document.getElementById('btn-agregar');
-const listaParciales = document.getElementById('lista-parciales');
+const btnEliminar = document.createElement('btn-eliminar');
+const btnCalcular = document.getElementById('btn-calcular');
+const Template = document.getElementById('fila-template');
 const sumaPorcentajes = document.getElementById('suma-porcentajes');
-
 const notaMinimaResultado = document.getElementById('nota-minima-resultado');
 const notaDeseadaResultado = document.getElementById('nota-deseada-resultado');
 const promedioAcumulado = document.getElementById('promedio-acumulado');
@@ -15,71 +16,24 @@ function actualizarSumaMostrada() {
     });
     sumaPorcentajes.textContent = 'acumulado: ' + suma + '%';
 }
-
-function crearFilaParcial() {
-    const div = document.createElement('div');
-    div.className = 'fila-parcial';
-
-    const labelNota = document.createElement('label');
-    labelNota.textContent = 'Nota:';
-
-    const inputNota = document.createElement('input');
-    inputNota.type = 'number';
-    inputNota.className = 'input-nota';
-    inputNota.step = '0.1';
-    inputNota.min = '0';
-    inputNota.max = '5';
-    inputNota.placeholder = '3.5';
-
-    const labelPorcentaje = document.createElement('label');
-    labelPorcentaje.textContent = 'Porcentaje:';
-
-    const inputPorcentaje = document.createElement('input');
-    inputPorcentaje.type = 'number';
-    inputPorcentaje.className = 'input-porcentaje';
-    inputPorcentaje.min = '1';
-    inputPorcentaje.max = '100';
-    inputPorcentaje.placeholder = '20';
-
-    const btnEliminar = document.createElement('button');
-    btnEliminar.type = 'button';
-    btnEliminar.className = 'btn-eliminar';
-    btnEliminar.textContent = 'Eliminar';
-
+function agregarFila() {
+    const clone = Template.content.cloneNode(true);
+    const contenedor = document.getElementById('notas');
+    
+    
+    const btnEliminar = clone.querySelector('.btn-eliminar');
     btnEliminar.addEventListener('click', function() {
-        div.remove();
+        this.closest('.fila-nota').remove();
         actualizarSumaMostrada();
         revisarSumaTotal();
+        if (document.querySelectorAll('.fila-nota').length <= 0) {
+            agregarFila();}
     });
-
-    inputPorcentaje.addEventListener('input', function() {
-    validarPorcentaje(inputPorcentaje);
-    actualizarSumaMostrada();
-    revisarSumaTotal();
-});
-
-    const grupoNota = document.createElement('span');
-    grupoNota.className = 'grupo-campo';
-    grupoNota.appendChild(labelNota);
-    grupoNota.appendChild(inputNota);
-
-    const grupoPorcentaje = document.createElement('span');
-    grupoPorcentaje.className = 'grupo-campo';
-    grupoPorcentaje.appendChild(labelPorcentaje);
-    grupoPorcentaje.appendChild(inputPorcentaje);
-    grupoPorcentaje.appendChild(btnEliminar);
-
-    div.appendChild(grupoNota);
-    div.appendChild(grupoPorcentaje);
-
-    const totalFilas = document.querySelectorAll('.fila-parcial').length;
-    if (totalFilas > 0) {
-        labelNota.style.display = 'none';
-        labelPorcentaje.style.display = 'none';
-    }
-
-    return div;
+    contenedor.appendChild(clone);  
 }
+//agrega una fila al cargar la página
+agregarFila();
+
 
 function validarPorcentaje(input) {
     let valor = parseFloat(input.value);
@@ -276,14 +230,6 @@ function mostrarMensaje() {
     mostrarPopUp(mensaje);
 }
 
-btnAgregar.addEventListener('click', function() {
-    const fila = crearFilaParcial();
-    listaParciales.appendChild(fila);
-    actualizarSumaMostrada();
-});
-
-const btnCalcular = document.getElementById('btn-calcular');
-
 btnCalcular.addEventListener('click', function() {
     calcularPromedioAcumulado();
     calcularNotaFinalAcumulada();
@@ -292,9 +238,10 @@ btnCalcular.addEventListener('click', function() {
     mostrarMensaje();
 });
 
-const filaInicial = crearFilaParcial();
-listaParciales.appendChild(filaInicial);
-actualizarSumaMostrada();
+btnAgregar.addEventListener('click', function() {
+        agregarFila();
+    });
+
 
 notaMinimaResultado.addEventListener('click', function() {
     mostrarPopUp('Es la nota que debes sacar en el porcentaje restante para alcanzar justo el 3.0 y aprobar la materia.');

@@ -13,16 +13,35 @@
         <h1>Calculadora de nota final</h1>
         <section class="container" style="background-color: #f9f9f9; padding-top: 1px;">
             
-                <p style="margin:20px 5px 0px 10px; font-size: 16px">en esta web encontraras una herramienta completa que te permita saber toda la informacion sobre tu rendimiento academico con tus notas actuales.<br> clickea los elementos en resumen para mas info,cambia el rango segun el pais </p>
+                <p style=" font-size: 16px">en esta web encontraras una herramienta completa que te permita saber toda 
+                    la informacion sobre tu rendimiento academico con tus notas actuales.<br>
+                    clickea los elementos en resumen para mas info,cambia el rango segun el pais </p>
                 
             <section id="information" class="container" style="background-color: white; padding: 15px 30px;">  
                 <p id="suma-porcentajes" style="display: block; justify-self: end; padding: 0px; margin: 0px;">acumulado: 0%</p>  
-                    <div id="lista-parciales" style="padding-bottom: 10px;">
-                    <!-- Aquí se van añadiendo las filas dinámicamente -->
-                    </div>
-                <div style="display:flex; justify-content:space-between;  padding-left:27%; padding-right: 27%;">
-                <button id="btn-agregar" type="button">Añadir nota</button>
-                <button id="btn-calcular" type="button">Calcular</button>
+                        <div id="notas">
+                            <template id="fila-template">
+                                <div class="fila-nota">
+                                    <div>
+                                        <label class="input-group" type="text">Nota</label>
+                                        <input type="text" class="input-nota" placeholder="3.2">
+                                    </div>
+                                    <div class="grupo-porcentaje">
+                                        <div class="input-group">
+                                            <label class="" type="text">Porcentaje</label>
+                                            <input type="text" class="input-porcentaje" placeholder="25%">
+                                        </div>
+                                        <button type="button" class="btn-eliminar">eliminar</button>
+                                    </div>
+                                    
+                                    
+                                    
+                                </div>
+                            </template> 
+                        </div>
+                <div class="botones">
+                <button id="btn-agregar" type="button" style="padding-inline:4px;">Añadir nota</button>
+                <button id="btn-calcular" type="button" style="padding-inline: 56px;">Calcular</button>
                 </div>
             
             <section id="objetivo">
