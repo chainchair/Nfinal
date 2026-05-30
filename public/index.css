@@ -218,3 +218,23 @@ input {
     cursor: pointer;
     border-radius: 5%;
 }
+
+.contenedor_resultados{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    
+}
+
+@media (max-width: 500px) {
+    .contenedor_resultados {
+       grid-template-columns: 1fr;
+       
+    }
+}
+
+@media (max-width: 350px) {
+    .contenedor_resultados p {
+       font-size: small;
+       justify-items: start;
+    }
+}
