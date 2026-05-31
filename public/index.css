@@ -225,7 +225,7 @@ input {
     
 }
 
-@media (max-width: 500px) {
+@media (max-width: 400px) {
     .contenedor_resultados {
        grid-template-columns: 1fr;
        
