@@ -20,7 +20,6 @@ function agregarFila() {
     const clone = Template.content.cloneNode(true);
     const contenedor = document.getElementById('notas');
     
-    
     const btnEliminar = clone.querySelector('.btn-eliminar');
     btnEliminar.addEventListener('click', function() {
         this.closest('.fila-nota').remove();
@@ -249,17 +248,17 @@ btnAgregar.addEventListener('click', function() {
 
 
 notaMinimaResultado.addEventListener('click', function() {
-    mostrarPopUp('Es la nota que debes sacar en el porcentaje restante para alcanzar justo el 3.0 y aprobar la materia.');
+    mostrarPopUp('Es la nota que debes sacar en el porcentaje restante para alcanzar justo el 3.0 de nota final.');
 });
 
 notaDeseadaResultado.addEventListener('click', function() {
-    mostrarPopUp('Es la nota a la que deberías apuntar en lo que falta para tener un margen de seguridad.');
+    mostrarPopUp('Es la nota a la que deberías apuntar en lo que falta para tener un margen.');
 });
 
 promedioAcumulado.addEventListener('click', function() {
-    mostrarPopUp('Es tu promedio actual considerando solo las notas que ya tienes y sus respectivos porcentajes.');
+    mostrarPopUp('Es tu promedio actual considerando solo las notas que ya tienes.');
 });
 
 notaMinimaPosible.addEventListener('click', function() {
-    mostrarPopUp('Es la nota final que obtendrías si sacaras 0 en todo lo que falta.');
+    mostrarPopUp('Es la nota final que obtendrías si sacas 0 en todo lo que falta.');
 });
