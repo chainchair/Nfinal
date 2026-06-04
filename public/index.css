@@ -25,7 +25,9 @@ h1, h2,h3,h4,h5,h6 {
 
 p{
     font-size: medium;
-     text-align: center;
+    align-items: center;
+    justify-content: center;
+
 }
 @media (max-width: 650px) {
     p {
@@ -219,9 +221,10 @@ input {
     border-radius: 5%;
 }
 
-.contenedor_resultados{
+.contenedor_resultados {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    text-align: center;
     
 }
 
@@ -232,9 +235,27 @@ input {
     }
 }
 
+
 @media (max-width: 350px) {
     .contenedor_resultados p {
        font-size: small;
        justify-items: start;
     }
+}
+
+.icon {
+    height: 38px;
+    width: 38px;  
+    display: block;
+}
+
+.resultado {
+    display: flex;
+    flex-direction: row;
+
+}
+b{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
