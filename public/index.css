@@ -4,7 +4,7 @@ html, body {
     height: 100%;
 }
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Montserrat', Arial, sans-serif;
     display: flex;
     flex-direction: column;
     background-color: white;
@@ -252,6 +252,7 @@ input {
 .resultado {
     display: flex;
     flex-direction: row;
+    gap: 10px;
 
 }
 b{
