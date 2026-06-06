@@ -7,7 +7,10 @@ const notaMinimaResultado = document.getElementById('nota-minima-resultado');
 const notaDeseadaResultado = document.getElementById('nota-deseada-resultado');
 const promedioAcumulado = document.getElementById('promedio-acumulado');
 const notaMinimaPosible = document.getElementById('nota-minima-posible');
-
+const necesaria = document.getElementById('necesaria');
+const recomendada = document.getElementById('recomendada');
+const actual = document.getElementById('actual');
+const minima = document.getElementById('minima');
 function actualizarSumaMostrada() {
     let suma = 0;
     const inputs = document.querySelectorAll('.input-porcentaje');
@@ -247,18 +250,18 @@ btnAgregar.addEventListener('click', function() {
     });
 
 
-notaMinimaResultado.addEventListener('click', function() {
+necesaria.addEventListener('click', function() {
     mostrarPopUp('Es la nota que debes sacar en el porcentaje restante para alcanzar justo el 3.0 de nota final.');
 });
 
-notaDeseadaResultado.addEventListener('click', function() {
+recomendada.addEventListener('click', function() {
     mostrarPopUp('Es la nota a la que deberías apuntar en lo que falta para tener un margen.');
 });
 
-promedioAcumulado.addEventListener('click', function() {
+actual.addEventListener('click', function() {
     mostrarPopUp('Es tu promedio actual considerando solo las notas que ya tienes.');
 });
 
-notaMinimaPosible.addEventListener('click', function() {
+minima.addEventListener('click', function() {
     mostrarPopUp('Es la nota final que obtendrías si sacas 0 en todo lo que falta.');
 });

@@ -211,10 +211,10 @@ input {
     background-color: #0d3b0f;
 }
 
-#nota-minima-resultado:hover,
-#nota-deseada-resultado:hover,
-#promedio-acumulado:hover,
-#nota-minima-posible:hover {
+#necesaria:hover,
+#recomendada:hover,
+#actual:hover,
+#minima:hover {
     background-color: rgba(0, 0, 0, 0.04);
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     cursor: pointer;
