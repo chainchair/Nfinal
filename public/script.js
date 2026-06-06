@@ -7,7 +7,10 @@ const notaMinimaResultado = document.getElementById('nota-minima-resultado');
 const notaDeseadaResultado = document.getElementById('nota-deseada-resultado');
 const promedioAcumulado = document.getElementById('promedio-acumulado');
 const notaMinimaPosible = document.getElementById('nota-minima-posible');
-
+const necesaria = document.getElementById('necesaria');
+const recomendada = document.getElementById('recomendada');
+const actual = document.getElementById('actual');
+const minima = document.getElementById('minima');
 function actualizarSumaMostrada() {
     let suma = 0;
     const inputs = document.querySelectorAll('.input-porcentaje');
@@ -103,24 +106,24 @@ function calcularPromedioAcumulado() {
     const datos = obtenerDatos();
     
     if (datos.sumaPorcentajes === 0) {
-        promedioAcumulado.textContent = 'Promedio acumulado: --';
+        promedioAcumulado.textContent = '--';
         return;
     }
     
     const promedio = datos.sumaNotasPonderadas / datos.sumaPorcentajes;
-    promedioAcumulado.innerHTML = '<strong>Promedio acumulado:</strong> ' + promedio.toFixed(2);
+    promedioAcumulado.innerHTML = promedio.toFixed(2);
 }
 
 function calcularNotaFinalAcumulada() {
     const datos = obtenerDatos();
     
     if (datos.sumaPorcentajes === 0) {
-        notaMinimaPosible.textContent = 'Nota final acumulada: --';
+        notaMinimaPosible.textContent = '--';
         return;
     }
     
     const notaFinal = datos.sumaNotasPonderadas / 100;
-    notaMinimaPosible.innerHTML = '<strong>Nota final acumulada:</strong> ' + notaFinal.toFixed(2);
+    notaMinimaPosible.innerHTML = notaFinal.toFixed(2);
 }
 
 function calcularNotaMinima() {
@@ -128,16 +131,16 @@ function calcularNotaMinima() {
     const NOTA_APROBACION = 3.0;
     
     if (datos.sumaPorcentajes === 0) {
-        notaMinimaResultado.textContent = 'Nota final mínima: --';
+        notaMinimaResultado.textContent = '--';
         return;
     }
     
     if (datos.porcentajeRestante === 0) {
         const notaFinal = datos.sumaNotasPonderadas / 100;
         if (notaFinal >= NOTA_APROBACION) {
-            notaMinimaResultado.innerHTML = '<strong>Nota final mínima:</strong> Ya aprobaste';
+            notaMinimaResultado.innerHTML = 'Ya aprobaste';
         } else {
-            notaMinimaResultado.innerHTML = '<strong>Nota final mínima:</strong> Ya perdiste';
+            notaMinimaResultado.innerHTML = 'Ya perdiste';
         }
         return;
     }
@@ -145,18 +148,18 @@ function calcularNotaMinima() {
     const notaNecesaria = (NOTA_APROBACION * 100 - datos.sumaNotasPonderadas) / datos.porcentajeRestante;
     
     if (notaNecesaria <= 0) {
-        notaMinimaResultado.innerHTML = '<strong>Nota final mínima:</strong> Ya aprobaste';
+        notaMinimaResultado.innerHTML = 'Ya aprobaste';
     } else if (notaNecesaria > 5) {
-        notaMinimaResultado.innerHTML = '<strong>Nota final mínima:</strong> Imposible (' + notaNecesaria.toFixed(1) + ')';
+        notaMinimaResultado.innerHTML = 'Imposible (' + notaNecesaria.toFixed(1) + ')';
     } else {
-        notaMinimaResultado.innerHTML = '<strong>Nota final mínima:</strong> ' + notaNecesaria.toFixed(1);
+        notaMinimaResultado.innerHTML = notaNecesaria.toFixed(1);
     }
 }
 function calcularNotaRecomendada() {
     const datos = obtenerDatos();
     
     if (datos.sumaPorcentajes === 0 || datos.porcentajeRestante === 0) {
-        notaDeseadaResultado.innerHTML = '<strong>Nota recomendada:</strong> --';
+        notaDeseadaResultado.innerHTML = '--';
         return;
     }
     
@@ -164,7 +167,7 @@ function calcularNotaRecomendada() {
     const notaNecesaria = parseFloat(textoNotaMinima.replace('Nota final mínima: ', ''));
     
     if (isNaN(notaNecesaria)) {
-        notaDeseadaResultado.innerHTML = '<strong>Nota recomendada:</strong> no aplica';
+        notaDeseadaResultado.innerHTML = 'no aplica';
         return;
     }
     
@@ -177,16 +180,16 @@ function calcularNotaRecomendada() {
     } else if (notaNecesaria < 4.5) {
         incremento = 0.5;
     } else {
-        notaDeseadaResultado.innerHTML = '<strong>Nota recomendada:</strong> Mucha suerte, necesitas 5.0';
+        notaDeseadaResultado.innerHTML = 'Mucha suerte, necesitas 5.0';
         return;
     }
     
     const notaRecomendada = notaNecesaria + incremento;
     
     if (notaRecomendada > 5) {
-        notaDeseadaResultado.innerHTML = '<strong>Nota recomendada:</strong> Mucha suerte, necesitas 5.0';
+        notaDeseadaResultado.innerHTML = 'Mucha suerte, necesitas 5.0';
     } else {
-        notaDeseadaResultado.innerHTML = '<strong>Nota recomendada:</strong> ' + notaRecomendada.toFixed(1);
+        notaDeseadaResultado.innerHTML = notaRecomendada.toFixed(1);
     }
 }
 // Función para mostrar un mensaje basado en la nota mínima necesaria
@@ -226,7 +229,7 @@ function mostrarMensaje() {
     } else if (notaNecesaria <= 4.5) {
         mensaje = 'Está difícil, estudia bastante.';
     } else if (notaNecesaria <= 5) {
-        mensaje = 'Estás en zona de riesgo, necesitas casi todo perfecto.';
+        mensaje = 'necesitas casi todo perfecto.';
     } else {
         mensaje = 'Ya perdiste la materia.';
     }
@@ -247,18 +250,18 @@ btnAgregar.addEventListener('click', function() {
     });
 
 
-notaMinimaResultado.addEventListener('click', function() {
+necesaria.addEventListener('click', function() {
     mostrarPopUp('Es la nota que debes sacar en el porcentaje restante para alcanzar justo el 3.0 de nota final.');
 });
 
-notaDeseadaResultado.addEventListener('click', function() {
+recomendada.addEventListener('click', function() {
     mostrarPopUp('Es la nota a la que deberías apuntar en lo que falta para tener un margen.');
 });
 
-promedioAcumulado.addEventListener('click', function() {
+actual.addEventListener('click', function() {
     mostrarPopUp('Es tu promedio actual considerando solo las notas que ya tienes.');
 });
 
-notaMinimaPosible.addEventListener('click', function() {
+minima.addEventListener('click', function() {
     mostrarPopUp('Es la nota final que obtendrías si sacas 0 en todo lo que falta.');
 });
