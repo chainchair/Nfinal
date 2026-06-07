@@ -245,14 +245,25 @@ input {
 
 .icon {
     height: 38px;
-    width: 38px;  
+    width: 34px;  
     display: block;
+}
+@media (max-width: 500px) {
+    .icon {
+       height: 30px;
+       width: 26px;  
+    }
+}
+@media (max-width: 350px) {
+    .icon {
+       height: 25px;
+       width: 22px;  
+    }
 }
 
 .resultado {
     display: flex;
     flex-direction: row;
-    gap: 10px;
 
 }
 b{
